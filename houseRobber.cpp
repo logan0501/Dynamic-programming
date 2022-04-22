@@ -14,6 +14,14 @@ int rob(vector<int>& nums) {
     }
     return dp[n-1];
 }
+int robrec(int n,vector<int>&nums){
+    if(n==0)return 0;
+    if(n==1)return nums[0];
+    
+    return max(robrec(n-1,nums),robrec(n-2,nums)+nums[n-1]);
+}
 int main(){
+    vector<int> nums={1,2,3,1};
+    cout<<robrec(4,nums);
     return 0;
 }
